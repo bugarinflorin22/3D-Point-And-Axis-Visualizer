@@ -1,0 +1,56 @@
+{
+  "appId": "com.mathprogram.app",
+  "productName": "Math Program",
+  "files": [
+    {
+      "from": "dist",
+      "to": "dist",
+      "filter": [
+        "**/*"
+      ]
+    },
+    {
+      "from": "public/electron-main.cjs",
+      "to": "."
+    },
+    {
+      "from": "public/preload.cjs",
+      "to": "."
+    },
+    {
+      "from": "node_modules",
+      "to": "node_modules",
+      "filter": [
+        "!**/*.d.ts",
+        "!**/tests",
+        "!**/docs"
+      ]
+    }
+  ],
+  "directories": {
+    "buildResources": "assets",
+    "output": "dist-electron"
+  },
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      },
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ],
+    "certificateFile": null,
+    "signingHashAlgorithms": ["sha256"]
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "Math Program"
+  }
+}
+
